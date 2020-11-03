@@ -48,8 +48,8 @@ def view_badge(id: str):
 
     tweet_link = "https://twitter.com/intent/tweet?" + urlencode(
         {
-            "text": f"I am attending PyCon India 2020 on Oct 2-5.\n\nSee my badge here: {request.scheme}://{request.host}{url_for('view_badge', id=id)}.\n\nYou can get yours too at https://in.pycon.org/badges",
-            "hashtags": "PyConIndia2020,python",
+            "text": f"I am attending EPAM GDCR on 7th Nov.\n\nSee my badge here: {request.scheme}://{request.host}{url_for('view_badge', id=id)}.\n\nYou can get yours too at https://lanyardgenerator.herokuapp.com/badges",
+            "hashtags": "EPAMGDCR,EPAM,LifeAtEPAM",
         }
     )
 
@@ -66,9 +66,9 @@ def edit_badge(id: str):
         flash("Please verify your registration first")
         return redirect(url_for("verify_registration"))
 
-    if session["uuid"] != attendee.uuid:
+    if session["uuid"] != attendee.id:
         flash("You are not auuthorized to edit this page")
-        return redirect(url_for("view_badge", id=attendee.uuid))
+        return redirect(url_for("view_badge", id=attendee.id))
 
     form = BadgeForm(
         fullname=attendee.fullname,
@@ -80,7 +80,7 @@ def edit_badge(id: str):
 
     if form.validate_on_submit():
         a = User.find_by_id(form.username.data)
-        if a and a.uuid != attendee.uuid:
+        if a and a.uuid != attendee.id:
             form.username.errors.append(
                 "This username already exists. Please choose another one."
             )

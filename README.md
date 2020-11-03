@@ -1,1 +1,1 @@
-# PyCon India 2020 Badges system
+# EPAM India Lanyard Generator System

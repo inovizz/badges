@@ -13,6 +13,7 @@ VALID_ATTENDEE_TYPES = ["attendee", "speaker", "volunteer"]
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    fullname = db.Column(db.String(120))
     username = db.Column(db.String(64), index=True, unique=True)
     email_id = db.Column(db.String(120), index=True, unique=True)
     avatar_url = db.Column(
@@ -44,11 +45,12 @@ class User(db.Model):
         return "<User {}>".format(self.id)
 
     @classmethod
-    def create(cls, email_id: str, fullname: str, type: str) -> User:
+    def create(cls, email_id: str, fullname: str, username: str, type: str) -> User:
         a = User(
             type=type,
             email_id=email_id,
             fullname=fullname,
+            username=username,
         )
         db.session.add(a)
         db.session.commit()
