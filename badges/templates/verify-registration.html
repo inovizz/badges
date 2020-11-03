@@ -1,0 +1,29 @@
+{% extends '_base.html' %}
+{% block title %}Verify Email{% endblock %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <div class="page-details">
+          <a href="https://welcome.epam.in">
+              <img class="logo" src={{ url_for('static', filename='images/conf-logo.svg') }} />
+          </a>
+          <h1 class="title">Enter your registration details</h1>
+          <div class="info">If you don't have your registration email, please contact <a href="mailto:Sanchit_Balchandani@epam.com">Sanchit_Balchandani@epam.com</a></div>
+          <div class="description">
+            <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-field">
+                    <div class="flex">
+                        {{ form.email_id.label }}
+                        {{ form.email_id }}
+                    </div>
+                    {% for error in form.email_id.errors %}
+                    <span style="color: red; font-size: 1rem;">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {{ form.submit(class_='primary-button') }}
+            </form>
+          </div>
+        </div>
+    </div>
+{% endblock %}

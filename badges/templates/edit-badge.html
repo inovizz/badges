@@ -1,0 +1,69 @@
+{% extends '_base.html' %}
+{% block title %}Verify Booking Details{% endblock %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <div class="page-details">
+          <a href="//in.pycon.org">
+              <img class="logo" src={{ url_for('static', filename='images/conf-footer-logo.svg') }} />
+          </a>
+          <h1 class="title">Enter your details</h1>
+          <div class="description">
+            <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-field">
+                    <div class="flex">
+                        {{ form.fullname.label }}
+                        {{ form.fullname }}
+                    </div>
+                    <small >{{ form.fullname.description }}</small><br/>
+                    {% for error in form.fullname.errors %}
+                    <span style="color: red; font-size: 1rem;">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="form-field">
+                    <div class="flex">
+                        {{ form.avatar_url.label }}
+                        {{ form.avatar_url }}
+                    </div>
+                    <small >{{ form.avatar_url.description }}</small><br/>
+                    {% for error in form.avatar_url.errors %}
+                    <span style="color: red; font-size: 1rem;">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="form-field">
+                    <div class="flex">
+                        {{ form.twitter_id.label }}
+                        {{ form.twitter_id }}
+                    </div>
+                    <small >{{ form.twitter_id.description }}</small><br/>
+                    {% for error in form.twitter_id.errors %}
+                    <span style="color: red; font-size: 1rem;">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="form-field">
+                    <div class="flex">
+                        {{ form.username.label }}
+                        {{ form.username }}
+                    </div>
+                    <small >{{ form.username.description }}</small><br/>
+                    {% for error in form.username.errors %}
+                    <span style="color: red; font-size: 1rem;">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="form-field">
+                    <div class="flex">
+                        {{ form.about.label }}
+                        {{ form.about }}
+                    </div>
+                    <small >{{ form.about.description }}</small><br/>
+                    {% for error in form.about.errors %}
+                    <span style="color: red; font-size: 1rem;">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {{ form.submit(class_='primary-button') }}
+            </form>
+          </div>
+        </div>
+    </div>
+{% endblock %}
