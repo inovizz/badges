@@ -32,8 +32,9 @@ body {
   line-height: 1.375rem;
   color: #FFFFFF;
   text-decoration: none;
+  /* padding: 2px 2px 3px 2px; */
   padding: 0.8125rem 1rem 0.875rem 1rem;
-  background: linear-gradient(180deg, #FF0006 0%, #C7181A 100%);
+  background: linear-gradient(180deg, #39c1d7 0%, #39c1d7 100%);
   border-radius: 0.3125rem;
   display: inline-block; }
   .primary-button span {
@@ -85,7 +86,7 @@ body {
       font-weight: bold;
       font-size: 1.875rem;
       line-height: 2.3125rem;
-      color: #FFC600;
+      color: #ffffff;
       margin-bottom: 2.0625rem; }
       .page-wrapper .page-details .error-message {
         color: #FFFFFF; }
@@ -96,7 +97,7 @@ body {
         font-size: 1.25rem;
           padding-bottom: 2rem; }
         .page-wrapper .page-details .info a {
-          color: #FFC600;
+          color: #ffffff;
           font-size: 1.35rem;
           padding-bottom: 2rem; }
     .page-wrapper .page-details .description {
@@ -113,7 +114,11 @@ body {
       margin: 0 2rem; }
 
 img.logo {
-  max-width: 300px;
+  max-width: 500px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 form label{
@@ -121,13 +126,13 @@ form label{
   text-align: left;
 }
 form {
-  border: 5px solid #FFC600;
+  border: 5px solid #ffffff;
   border-radius: 20px;
   padding: 1rem;
 }
 form .flex {
   margin-bottom: 1.25rem;
-  color: #D90000;
+  color: #39c1d7;
   font-weight: bold;
 }
 form .flex > * {
@@ -161,7 +166,7 @@ form .form-field small {
   padding: 0.5rem 0.75rem;
   margin-bottom: 0.75rem;
   background-color: #f5d76b;
-  color: #D90000;
+  color: #39c1d7;
   font-weight: 600;
   box-shadow: -1px 1px 9px black;
 }
@@ -173,7 +178,7 @@ form .form-field small {
 }
 
 .badge {
-  border: 3.5px solid #FFC600;
+  border: 3.5px solid #ffffff;
   box-sizing: border-box;
   border-radius: 25px;
   width: 512px;
@@ -188,9 +193,9 @@ form .form-field small {
 }
 .badge .header {
   margin: 0 auto;
-  width: 95%;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+  width: 100%;
+  border-top-left-radius: 21px;
+  border-top-right-radius: 21px;
 }
 .badge .badge-content {
   padding: 0 1.5rem;
@@ -198,7 +203,7 @@ form .form-field small {
 }
 .badge .badge-content p.date {
   margin-top: 0;
-  color: #FFC600;
+  color: #FFFFFF;
   line-height: 0;
 }
 .badge .badge-content .image-container {
@@ -208,7 +213,7 @@ form .form-field small {
 .badge .badge-content .image-container img {
   width: 135px;
   border-radius: 50%;
-  border: 4px solid #E50C10;
+  border: 4px solid #39c1d7;
 }
 .badge .badge-content .details-container {
   flex: 1;
@@ -228,7 +233,7 @@ form .form-field small {
   font-size: 3.0rem;
   margin: 0;
   line-height: 1.25;
-  color: #F0060B;
+  color: #39c1d7;
   font-weight: bold;
   word-break: break-word;
 }
@@ -238,17 +243,18 @@ form .form-field small {
   justify-content: center;
 }
 .badge .badge-content .about {
-  border: 2px solid #F10000;
+  border: 2px solid #39c1d7;
   box-sizing: border-box;
   border-radius: 20px;
   margin-top: 0.5rem;
+  margin-bottom: 20px;
   height: 200px;
 }
 .badge .badge-content .about .content {
   color: #FFFFFF;
 }
 .badge .badge-content .about .label {
-  background: #F10000;
+  background: #39c1d7;
   color: #FFFFFF;
   font-weight: bold;
   margin: 0;
