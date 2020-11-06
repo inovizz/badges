@@ -48,7 +48,7 @@ def view_badge(id: str):
 
     tweet_link = "https://twitter.com/intent/tweet?" + urlencode(
         {
-            "text": f"I am attending EPAM GDCR on 7th Nov.\n\nSee my badge here: {request.scheme}://{request.host}{url_for('view_badge', id=id)}.\n\nYou can get yours too at https://lanyardgenerator.herokuapp.com/badges",
+            "text": f"I am attending EPAM GDCR on 7th Nov.\n\nSee my badge here: {request.scheme}://{request.host}{url_for('view_badge', id=id)}.\n\nYou can get yours too at https://lanyardgenerator.herokuapp.com/",
             "hashtags": "EPAMGDCR,EPAM,LifeAtEPAM",
         }
     )
