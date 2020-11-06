@@ -34,17 +34,21 @@ def bulk_update_speakers(csv_path: str):
 
 # TO BE REFACTORED
 def bulk_insert_attendees(csv_path: str):
-    with open(csv_path) as f:
+    with open(csv_path, encoding='utf-8-sig') as f:
         rows = csv.DictReader(f, delimiter=",")
-
         for row in rows:
-            User.create(
-                booking_id=row["booking_id"],
-                order_id=row["order_id"],
-                ticket_type=row.get("ticket_type", ""),
-                email=row["email"],
-                fullname=row["fullname"],
-            )
+            a = User.find_by_email_id(row["email_id"])
+            if a:
+                print("User already existing")
+                continue
+            else:
+                User.create(
+                    email_id=row["email_id"],
+                    fullname=row["fullname"],
+                    twitter_id='dummy',
+                    type=row.get("ticket_type", "Attendee"),
+                )
+                print(f"User with email {row['email_id']} created")
 
 # TO BE REFACTORED
 def bulk_export_attendee_tokens(csv_path: str):

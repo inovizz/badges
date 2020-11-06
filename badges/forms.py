@@ -19,15 +19,6 @@ class VerifyEmailForm(FlaskForm):
     submit = SubmitField("Verify!")
 
 
-def username_check(form: FlaskForm, field: Field) -> bool:
-    username_pattern = r"^[a-z-]+$"
-
-    if not bool(re.match(username_pattern, field.data)):
-        raise ValidationError(
-            "Username should contain only lower case characters and hyphen"
-        )
-
-
 class BadgeForm(FlaskForm):
     fullname = StringField(
         "Full Name",
@@ -40,11 +31,6 @@ class BadgeForm(FlaskForm):
         validators=[url()],
     )
     twitter_id = StringField("Twitter ID", description="Your Twitter ID")
-    username = StringField(
-        "Username",
-        description="By default, your username is a random ID. If you want a custom name in your badge URL, please put in here. Only lower case alphabets and hyphen '-' are allowed in this field. Please note that the usernames are First Come First Serve.",
-        validators=[username_check],
-    )
     about = StringField(
         "About",
         description="Write something unique about you",

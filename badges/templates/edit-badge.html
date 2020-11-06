@@ -43,16 +43,6 @@
                 </div>
                 <div class="form-field">
                     <div class="flex">
-                        {{ form.username.label }}
-                        {{ form.username }}
-                    </div>
-                    <small >{{ form.username.description }}</small><br/>
-                    {% for error in form.username.errors %}
-                    <span style="color: red; font-size: 1rem;">{{ error }}</span>
-                    {% endfor %}
-                </div>
-                <div class="form-field">
-                    <div class="flex">
                         {{ form.about.label }}
                         {{ form.about }}
                     </div>

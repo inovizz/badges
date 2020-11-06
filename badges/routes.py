@@ -73,28 +73,20 @@ def edit_badge(id: str):
     form = BadgeForm(
         fullname=attendee.fullname,
         avatar_url=attendee.avatar_url,
-        username=attendee.username,
         twitter_id=attendee.twitter_id,
         about=attendee.about,
     )
 
     if form.validate_on_submit():
-        a = User.find_by_id(form.username.data)
-        if a and a.uuid != attendee.id:
-            form.username.errors.append(
-                "This username already exists. Please choose another one."
-            )
-        else:
-            attendee.fullname = form.fullname.data
-            attendee.avatar_url = form.avatar_url.data
-            attendee.username = form.username.data
-            attendee.twitter_id = form.twitter_id.data
-            attendee.about = form.about.data
+        attendee.fullname = form.fullname.data
+        attendee.avatar_url = form.avatar_url.data
+        attendee.twitter_id = form.twitter_id.data
+        attendee.about = form.about.data
 
-            attendee.update()
+        attendee.update()
 
-            flash("Badge information updated")
-            return redirect(url_for("view_badge", id=id))
+        flash("Badge information updated")
+        return redirect(url_for("view_badge", id=id))
 
     return render_template("edit-badge.html", form=form)
 
